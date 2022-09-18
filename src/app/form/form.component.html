@@ -1,0 +1,66 @@
+<div class="parent">
+  <div class="container border border-secondary">
+
+    <h2 class="text-secondary">User Details</h2>
+
+    <div class="row">
+      <form [formGroup]="myForm">
+        <div class="col-12">
+          <p>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" formControlName="name" autocomplete="off" (blur)="validateControls(myForm)">
+              <mat-error *ngIf="formErrors.name">{{ formErrors.name }}</mat-error>
+            </mat-form-field>
+          </p>
+        </div>
+        <div class="col-12">
+          <p>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" autocomplete="off" (blur)="validateControls(myForm)">
+              <mat-error *ngIf="formErrors.email">{{ formErrors.email }}</mat-error>
+            </mat-form-field>
+          </p>
+        </div>
+
+        <mat-divider></mat-divider>
+        <h3 class="text-secondary">Address</h3>
+        <div formGroupName="address">
+          <div class="col-12">
+            <p>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Area</mat-label>
+                <input matInput placeholder="Area" formControlName="area" autocomplete="off" (blur)="validateControls(myForm)">
+                <mat-error *ngIf="formErrors.area">{{ formErrors.area }}</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Street</mat-label>
+                <input matInput placeholder="Street" formControlName="street" autocomplete="off" (blur)="validateControls(myForm)">
+                <mat-error *ngIf="formErrors.street">{{ formErrors.street }}</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+
+          <div class="col-12">
+            <p>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Pincode</mat-label>
+                <input matInput placeholder="Pincode" formControlName="pincode" autocomplete="off" (blur)="validateControls(myForm)">
+                <mat-error *ngIf="formErrors.pincode">{{ formErrors.pincode }}</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="submitData()">Submit</button>
+    <button mat-raised-button color="warn" class="mx-3" (click)="clearData()">Clear</button>
+  </div>
+</div>
